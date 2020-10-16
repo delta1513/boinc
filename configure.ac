@@ -227,6 +227,20 @@ if test x$enable_unit_tests = xyes ; then
   configured_to_build="${configured_to_build} unit-tests"
 fi
 
+
+if test "${configured_to_build}" = " manager" ; then
+        AC_MSG_ERROR([
+================================================================================
+ERROR: Cannot build only the manager.
+
+    Please remove one of the --disable commands from your
+    configure command line.
+
+================================================================================
+        ])
+fi
+
+
 if test -z "${configured_to_build}" ; then
         AC_MSG_ERROR([
 ================================================================================
